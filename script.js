@@ -92,7 +92,9 @@ document.addEventListener("DOMContentLoaded", function() {
       const tile = document.createElement("div");
       tile.classList.add("tile");
       tile.draggable = true;
-      tile.style.backgroundPosition = `${-(pos % 3) * 100}px ${-Math.floor(pos / 3) * 100}px`;
+      // Use percentage positions so tiles show correct third of the image at any size.
+      tile.style.backgroundSize = '300% 300%';
+      tile.style.backgroundPosition = `${(pos % 3) * 50}% ${Math.floor(pos / 3) * 50}%`;
 
 tile.addEventListener("dragstart", () => {
       dragged = tile;
@@ -140,8 +142,8 @@ tile.addEventListener("dragstart", () => {
   function checkWin() {
     let correct = 0;
     tiles.forEach((tile,index)=>{
-      const correctX = `${-(index % 3)*100}px`;
-      const correctY = `${-Math.floor(index/3)*100}px`;
+      const correctX = `${(index % 3) * 50}%`;
+      const correctY = `${Math.floor(index/3) * 50}%`;
       const [x,y] = tile.style.backgroundPosition.split(" ");
       if(x===correctX && y===correctY) correct++;
     });
