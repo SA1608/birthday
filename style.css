@@ -168,6 +168,10 @@ body {
   font-family: 'Shadows Into Light', cursive;
 }
 
+.puzzle-title {
+  font-family: 'Shadows Into Light', cursive;
+}
+
 .tile {
   width: 100px;
   height: 100px;
@@ -249,4 +253,51 @@ body {
 .final-card.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  body {
+    font-size: 90%;
+  }
+
+  #introText {
+    font-size: 48px;
+  }
+
+  .memory {
+    font-size: 24px;
+  }
+
+  .final-card {
+    font-size: 20px;
+    padding: 30px;
+  }
+
+  .grid {
+    width: 90%;
+    height: auto;
+    gap: 3px;
+  }
+
+  .tile {
+    width: calc(33.33% - 4px);
+    height: calc(33.33% - 4px);
+  }
+
+  .image-reveal img {
+    width: 90%;
+    height: auto;
+  }
+
+  .image-caption {
+    font-size: 16px;
+    margin-top: 12px;
+  }
+
+  .intro-btn,
+  .primary-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 }
