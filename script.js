@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const grid = document.getElementById("grid");
   let tiles = [];
   let dragged = null;
+  let selectedTile = null; // for touch/click swap mode
 
   function showMemories() {
     if(memories.length > 0) memories[0].classList.add("active");
@@ -78,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function startPuzzle() {
     document.getElementById("memories").classList.add("hidden");
     document.getElementById("puzzleSection").classList.remove("hidden");
+    selectedTile = null;
     createPuzzle();
   }
 
@@ -92,14 +94,42 @@ document.addEventListener("DOMContentLoaded", function() {
       tile.draggable = true;
       tile.style.backgroundPosition = `${-(pos % 3) * 100}px ${-Math.floor(pos / 3) * 100}px`;
 
-      tile.addEventListener("dragstart", () => dragged = tile);
-      tile.addEventListener("dragover", e => e.preventDefault());
-      tile.addEventListener("drop", function() {
-        if(!dragged) return;
-        let temp = this.style.backgroundPosition;
-        this.style.backgroundPosition = dragged.style.backgroundPosition;
-        dragged.style.backgroundPosition = temp;
+tile.addEventListener("dragstart", () => {
+      dragged = tile;
+      // clear any selection on drag
+      if (selectedTile) {
+        selectedTile.classList.remove('selected');
+        selectedTile = null;
+      }
+    });
+    tile.addEventListener("dragover", e => e.preventDefault());
+    tile.addEventListener("drop", function() {
+      if(!dragged) return;
+      let temp = this.style.backgroundPosition;
+      this.style.backgroundPosition = dragged.style.backgroundPosition;
+      dragged.style.backgroundPosition = temp;
+      checkWin();
+    });
+
+    // click/touch support for swapping
+    tile.addEventListener('click', () => {
+      // reset any drag variable
+      dragged = null;
+      if (!selectedTile) {
+        selectedTile = tile;
+        tile.classList.add('selected');
+      } else if (selectedTile === tile) {
+        selectedTile.classList.remove('selected');
+        selectedTile = null;
+      } else {
+        // swap positions
+        let temp = tile.style.backgroundPosition;
+        tile.style.backgroundPosition = selectedTile.style.backgroundPosition;
+        selectedTile.style.backgroundPosition = temp;
+        selectedTile.classList.remove('selected');
+        selectedTile = null;
         checkWin();
+      }
       });
 
       grid.appendChild(tile);

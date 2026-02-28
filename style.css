@@ -276,13 +276,18 @@ body {
 
   .grid {
     width: 90%;
-    height: auto;
+    max-width: 330px;
+    aspect-ratio: 1;
     gap: 3px;
   }
 
   .tile {
     width: calc(33.33% - 4px);
     height: calc(33.33% - 4px);
+  }
+
+  .tile.selected {
+    outline: 3px solid var(--coral);
   }
 
   .image-reveal img {
