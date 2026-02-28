@@ -2,24 +2,26 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>For You 💙</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>My Love</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="background-glow"></div>
-
-<section id="animationSection" class="section">
-  <canvas id="animationCanvas"></canvas>
+<!-- Intro Section -->
+<section id="introSection" class="section">
+  <h1 id="introText">Hi Darling</h1>
+  <button id="heartBtn">❤️</button>
+  <div id="buttonContainer"></div>
 </section>
 
+<!-- Memories Section -->
 <section id="memories" class="section hidden">
-  <h1 class="title">Our Little Moments 💙</h1>
-
-  <div class="memory-container">
+  <div class="memory-card">
     <div class="memory">The first chocolate you ever got me… I still can't forget the taste. Not because it was sweet but because it was SO bad. And somehow, that made it unforgettable.</div>
 
-    <div class="memory">The first time you bought me a cookie… (I dont even eat em). But I still ate it. We went one floor above us, then took that little stroll outside the building, and there I was… still eating that cookie.</div>
+    <div class="memory">The first time you bought me a cookie… (I don’t even eat them). But I still ate it. We went one floor above us, then took that little stroll outside the building, and there I was… still eating that cookie.</div>
 
     <div class="memory">I remember when you told me to show you my teeth. I was wearing braces. I was shy. I refused. But you still made me laugh the entire day.</div>
 
@@ -29,36 +31,43 @@
 
     <div class="memory">And when we kept copying each other again and again… like two kids who never wanted the moment to end.</div>
   </div>
-
-  <button class="primary-btn" onclick="nextMemory()">Next Memory 💙</button>
 </section>
 
+<!-- Puzzle Section -->
 <section id="puzzleSection" class="section hidden">
-  <h1 class="title">Arrange it to see something 💙</h1>
+  <h1 class="title puzzle-title">Arrange this my love</h1>
   <div class="grid" id="grid"></div>
 </section>
 
+<!-- Image Reveal -->
 <section id="imageSection" class="section hidden">
   <div class="image-reveal">
     <img src="couple.jpeg" alt="Us" />
+    <div id="imageCaption" class="image-caption"></div>
   </div>
 </section>
 
+<!-- Final Section -->
 <section id="finalSection" class="section hidden">
   <div class="final-card">
-    <h1>Happy Birthday Love 🤍</h1>
+    <h1>Happy Birthday, my Pretty Boy 💗</h1>
     <p>
-      Thank you for all the memories.<br><br>
-      For the laughter.<br>
-      For the sweetness.<br>
-      For even the bad chocolate.<br>
-      I love you so much.<br><br>
-      JazakAllah.<br>
-      Thank you so much 🤍
+      Happy Birthday, my love! I LOVE YOU SO SO MUCH. <br>
+      Thank you for all the memories, for the laughter, the sweetness, and even the bad chocolate. <br>
+      I’m so proud of you, more than words can express, and you always make my day better just by thinking about you. <br>
+      I love everything about you, your mind, your body, your soul, your eyes, your heart, and of course your smile. <br>
+      I will always be here for you, maybe not always right next to you, but just a call or a text away. <br>
+      I don’t know what I did to deserve someone as amazing as you, but I feel so lucky to have you in my life. <br>
+      I never knew how much someone could mean to me until you came into my life. <br>
+      You are my everything, and I hope this birthday is the best one ever because you deserve all the happiness and success in the world. <br>
+      I love you so much, and I can’t wait to celebrate many more birthdays with you in the future. <br>
+      I love you more than words can express, and I will always be here for you no matter what. <br>
+      Happy Birthday, my darling, you are my everything and I am so grateful to have you in my life. <br>
+      JazakAllah, thank you for being you. 💋
     </p>
   </div>
 </section>
 
-<script defer src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
